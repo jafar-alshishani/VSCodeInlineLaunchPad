@@ -1,0 +1,8 @@
+node_modules/
+out/
+.vscode-test/
+.devlog/
+*.vsix
+.claude/
+bin/
+obj/

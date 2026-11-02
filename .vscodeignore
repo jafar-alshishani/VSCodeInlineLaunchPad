@@ -1,0 +1,16 @@
+.vscode/**
+.vscode-test/**
+.devlog/**
+.github/**
+testPyramid/**
+src/**
+node_modules/**
+tsconfig.json
+.gitignore
+.gitattributes
+.vscodeignore
+package-lock.json
+**/*.map
+**/*.vsix
+resources/square-terminal.png
+.claude/**

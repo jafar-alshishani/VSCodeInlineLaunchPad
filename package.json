@@ -1,0 +1,92 @@
+{
+  "name": "csharp-inline-launch-pad",
+  "displayName": "C# Inline Launch Pad",
+  "description": "Run a C# file or its project from the editor with Alt+F5, a status bar button, or a reusable terminal beside your code.",
+  "version": "0.1.0",
+  "publisher": "YOUR-PUBLISHER-ID",
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR-USERNAME/csharp-inline-launch-pad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR-USERNAME/csharp-inline-launch-pad/issues"
+  },
+  "homepage": "https://github.com/YOUR-USERNAME/csharp-inline-launch-pad#readme",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "c#",
+    "csharp",
+    "dotnet",
+    ".net",
+    "run",
+    "terminal",
+    "console",
+    "launch"
+  ],
+  "activationEvents": [
+    "onLanguage:csharp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "csharpInlineLaunchPad.run",
+        "title": "C# Quick Run",
+        "icon": {
+          "light": "resources/run-light.svg",
+          "dark": "resources/run-dark.svg"
+        }
+      },
+      {
+        "command": "csharpInlineLaunchPad.stop",
+        "title": "Stop C# Quick Run",
+        "icon": {
+          "light": "resources/stop-light.svg",
+          "dark": "resources/stop-dark.svg"
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "csharpInlineLaunchPad.run",
+        "key": "alt+f5",
+        "when": "(editorTextFocus && resourceExtname == .cs) || terminalFocus"
+      }
+    ],
+    "configuration": {
+      "title": "C# Inline Launch Pad",
+      "properties": {
+        "csharpInlineLaunchPad.panelWidth": {
+          "type": "number",
+          "default": 35,
+          "minimum": 10,
+          "maximum": 90,
+          "description": "Width of the beside terminal in percent when opening from a single editor group. Existing multi-group layouts are preserved."
+        },
+        "csharpInlineLaunchPad.saveBeforeRun": {
+          "type": "boolean",
+          "default": true,
+          "description": "Save all files before running C# code."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx --yes @vscode/vsce package",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.93.0",
+    "typescript": "^5.3.3"
+  }
+}
